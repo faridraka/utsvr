@@ -4,7 +4,7 @@ using UnityEngine;
 /// WristFollowPlayer.cs
 /// Membuat World Space Canvas mengikuti player seperti wrist panel
 /// Attach ke: GameObject "WristCanvas" (yang ada World Space Canvas)
-/// 
+///
 /// BONUS POIN: Panel mengikuti/menempel dekat player dengan nyaman
 /// </summary>
 public class WristFollowPlayer : MonoBehaviour

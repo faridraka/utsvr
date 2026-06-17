@@ -23,20 +23,18 @@ public class Billboard : MonoBehaviour
     }
 
     void LateUpdate()
-    {
-        if (targetCamera == null) return;
+{
+    if (targetCamera == null) return;
 
-        // Panel menghadap arah dari panel ke kamera
-        Vector3 direction = transform.position - targetCamera.transform.position;
+    Vector3 dir = targetCamera.transform.position - transform.position;
+    Quaternion lookRot = Quaternion.LookRotation(dir);
 
-        if (direction == Vector3.zero) return;
+    Vector3 euler = lookRot.eulerAngles;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            Time.deltaTime * rotationSpeed
-        );
-    }
+    transform.rotation = Quaternion.Euler(
+        0f,         // X dikunci
+        euler.y,    // hanya Y yang mengikuti
+        0f          // Z dikunci
+    );
+}
 }
