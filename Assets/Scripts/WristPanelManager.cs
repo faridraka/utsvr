@@ -254,6 +254,7 @@ public class WristPanelManager : MonoBehaviour
         if (ammoBarFill != null && !isReloading)
         {
             ammoBarFill.fillAmount = (float)currentAmmo / maxAmmo;
+            ammoBarFill.color = (currentAmmo <= ammoLowThreshold) ? ammoColorLow : ammoColorNormal;
         }
     }
 
